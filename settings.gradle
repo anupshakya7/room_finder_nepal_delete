@@ -1,0 +1,2 @@
+rootProject.name='Room Finder Nepal ASN'
+include ':app'

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color0">#fff</color>
+    <color name="color1">#67533e</color>
+    <color name="color2">#2f2a2a</color>
+    <color name="color3">#6a9060</color>
+    <color name="color4">#c1ad95</color>
+    <color name="color5">#d8d1c7</color>
+    <color name="fragment_background">#EAE7E7</color>
+</resources>
