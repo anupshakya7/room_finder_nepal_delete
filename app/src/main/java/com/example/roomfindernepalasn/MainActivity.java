@@ -10,8 +10,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -41,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_Navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_Container,new Home_Fragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_Container,new Rent_Fragment()).commit();
 
     }
 
@@ -59,14 +57,14 @@ public class MainActivity extends AppCompatActivity {
              Fragment selectedFragment=null;
 
             switch (item.getItemId()){
-                case R.id.nav_home:
-                    selectedFragment= new Home_Fragment();
+                case R.id.nav_rent:
+                    selectedFragment= new Rent_Fragment();
+                    break;
+                case R.id.nav_sale:
+                    selectedFragment= new Sale_Fragment();
                     break;
                 case R.id.nav_profile:
                     selectedFragment= new Profile_Fragment();
-                    break;
-                case R.id.nav_contact:
-                    selectedFragment= new Contact_Fragment();
                     break;
             }
 
