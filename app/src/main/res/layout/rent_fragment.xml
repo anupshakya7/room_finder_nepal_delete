@@ -14,6 +14,8 @@
         android:text="Rent"
         android:textSize="48dp"
         android:gravity="center_horizontal"
+        android:id="@+id/rent"
+        android:textAlignment="center"
         />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -21,6 +23,7 @@
         android:layout_height="match_parent"
         android:id="@+id/recycleView"
         android:scrollbars="vertical"
+        android:layout_below="@id/rent"
         >
 
 
