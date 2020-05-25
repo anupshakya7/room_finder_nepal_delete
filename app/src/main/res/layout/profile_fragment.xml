@@ -1,19 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fragment_background"
     >
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        >
+
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:id="@+id/imgview_profile"
+        android:src="@drawable/usericon"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp" />
 
     <TextView
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Profile Page"
-        android:textSize="40dp"
+        android:text="Subit Shakya"
+        android:textColor="#000"
+        android:layout_below="@id/imgview_profile"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:layout_marginTop="5dp"
+        android:textSize="18sp"/>
 
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Web Developer"
+        android:layout_below="@id/title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"/>
+
+    <ImageView
+        android:id="@+id/imgview_pic"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:src="@drawable/profile_ui"
+        android:layout_below="@id/description"
         />
 
-</RelativeLayout>
+    <LinearLayout
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/imgview_pic"
+        android:layout_marginTop="30dp">
+
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_local_phone_black_24dp"
+            android:layout_marginLeft="70dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="9841587691"
+            android:textSize="18sp"
+            android:textColor="#000"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/line2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/line1"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_email_black_24dp"
+            android:layout_marginLeft="70dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="subitskya@gmail.com"
+            android:textSize="18sp"
+            android:textColor="#000"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/line3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/line2"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_settings_black_24dp"
+            android:layout_marginLeft="70dp"/>
+
+        <TextView
+            android:id="@+id/settingsa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Settings"
+            android:textSize="18sp"
+            android:textColor="#000"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"/>
+    </LinearLayout>
+
+    </RelativeLayout>
+</ScrollView>

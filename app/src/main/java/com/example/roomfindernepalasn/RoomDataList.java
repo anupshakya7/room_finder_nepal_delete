@@ -1,17 +1,29 @@
 package com.example.roomfindernepalasn;
 
-public class RentRoomData {
+import android.widget.ScrollView;
 
+import java.util.List;
+
+public class RoomDataList {
+
+    private String roomImage;
     private String roomDescription;
     private String roomLocation;
     private String roomPrice;
-    private int roomImage;
 
-    public RentRoomData(String roomDescription, String roomLocation, String roomPrice, int roomImage) {
+    public RoomDataList(){
+
+    }
+
+    public RoomDataList(String roomImage, String roomDescription, String roomLocation, String roomPrice) {
+        this.roomImage = roomImage;
         this.roomDescription = roomDescription;
         this.roomLocation = roomLocation;
         this.roomPrice = roomPrice;
-        this.roomImage = roomImage;
+    }
+
+    public String getRoomImage() {
+        return roomImage;
     }
 
     public String getRoomDescription() {
@@ -24,9 +36,5 @@ public class RentRoomData {
 
     public String getRoomPrice() {
         return roomPrice;
-    }
-
-    public int getRoomImage() {
-        return roomImage;
     }
 }

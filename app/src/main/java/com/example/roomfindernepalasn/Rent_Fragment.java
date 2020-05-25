@@ -6,11 +6,17 @@ package com.example.roomfindernepalasn;
 
 
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 
@@ -19,41 +25,136 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class Rent_Fragment extends Fragment {
 
-    public Rent_Fragment(){
-
-    }
-
     RecyclerView recyclerView;
-    List<RentRoomData> myRoomList;
+    List<RoomDataList> myRoomList1;
+    RoomDataList mRoomDataList;
 
+    private DatabaseReference databaseReference;
+    private ValueEventListener eventListener;
+    ProgressDialog progressDialog;
+    RoomAdapter roomAdapter;
+
+
+    EditText txt_Search;
+
+    FloatingActionButton mFloatActionButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view= inflater.inflate(R.layout.rent_fragment,container,false);
+        View view = inflater.inflate(R.layout.rent_fragment, container, false);
 
-        recyclerView=(RecyclerView)view.findViewById(R.id.recycleView);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView = (RecyclerView) view.findViewById(R.id.recycleView);
+        mFloatActionButton = (FloatingActionButton)view.findViewById(R.id.floatingBtn);
+        txt_Search=(EditText)view.findViewById(R.id.txt_SearchText);
 
-        //initData();
+//        recyclerView.setHasFixedSize(true);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        recyclerView.setAdapter(new ItemAdapter(initData()));
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),1);
+        recyclerView.setLayoutManager(gridLayoutManager);
+
+        progressDialog = new ProgressDialog(view.getContext());
+        progressDialog.setMessage("Loading Items....");
+
+        myRoomList1 = new ArrayList<>();
+
+        
+
+//        mRoomDataList = new RoomDataList(R.drawable.room2,"Top Floor","Patan","Rs. 10000");
+//        myRoomList1.add(mRoomDataList);
+//
+//        mRoomDataList= new RoomDataList(R.drawable.room3,"Bottom Floor","Kathmandu","Rs. 20000");
+//        myRoomList1.add(mRoomDataList);
+
+        final RoomAdapter roomAdapter = new RoomAdapter(Rent_Fragment.this,myRoomList1);
+        recyclerView.setAdapter(roomAdapter);
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("RentRoomDetail");
+
+        progressDialog.show();
+
+        eventListener = databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                myRoomList1.clear();
+
+                for(DataSnapshot itemSnapshot: dataSnapshot.getChildren()){
+                    RoomDataList roomDataList = itemSnapshot.getValue(RoomDataList.class);
+                    myRoomList1.add(roomDataList);
+
+                }
+
+                roomAdapter.notifyDataSetChanged();
+                progressDialog.dismiss();
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                progressDialog.dismiss();
+            }
+        });
+
+
+        txt_Search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
+            }
+        });
+
+
+        mFloatActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(v.getContext(),Upload_RoomData.class));
+            }
+        });
 
         return view;
     }
 
-    private List<RentRoomData> initData() {
+    private void filter(String toString) {
 
-        myRoomList= new ArrayList<>();
-        myRoomList.add(new RentRoomData("Top Floor Rent","Gabahal,Lalitpur","Rs.8000",R.drawable.room2));
-        myRoomList.add(new RentRoomData("Bottom Floor Rent","Mangal Bazar,Lalitpur","Rs. 10000",R.drawable.room3));
+        ArrayList<RoomDataList> filterList= new ArrayList<>();
 
-        return myRoomList;
+        for(RoomDataList item: myRoomList1){
+
+            if(item.getRoomLocation().toLowerCase().contains(toString.toLowerCase()) ){
+
+                filterList.add(item);
+
+            }
+
+        }
+        roomAdapter.filteredList(filterList);
+
+
     }
+
+
 }
