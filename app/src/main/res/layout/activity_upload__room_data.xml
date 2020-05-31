@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="30dp"
+        android:padding="10dp"
         android:orientation="vertical"
         >
 
@@ -24,6 +24,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Room Description"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+            android:inputType="text"
             android:textSize="19sp"
             android:layout_marginTop="20dp"
             android:id="@+id/uploadRoomDescription"
@@ -33,6 +36,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Room Location"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:inputType="text"
             android:textSize="19sp"
             android:layout_marginTop="20dp"
             android:id="@+id/uploadRoomLocation"
@@ -45,7 +51,52 @@
             android:textSize="19sp"
             android:layout_marginTop="20dp"
             android:id="@+id/uploadRoomPrice"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:inputType="text"
             />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:layout_margin="5dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Room Type:"
+                android:layout_weight="1"
+                android:layout_marginTop="15dp"
+                android:textColor="#000"
+                android:textSize="18sp"
+
+                />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rent"
+                android:layout_weight="1"
+                android:textSize="16sp"
+                android:layout_marginTop="15dp"
+                android:id="@+id/rbtnRent"
+            />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sale"
+                android:layout_weight="1"
+               android:layout_marginTop="15dp"
+                android:textSize="16sp"
+                android:id="@+id/rbtnSale"
+                />
+
+
+        </RadioGroup>
 
         <Button
             android:layout_width="match_parent"

@@ -15,31 +15,31 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.google.firebase.database.core.Context;
 
 import java.util.List;
 
-public class RoomAdapter extends RecyclerView.Adapter<RoomViewHolder>{
+public class RoomAdapter1 extends RecyclerView.Adapter<RoomViewHolder1>{
 
-    private Rent_Fragment mContext;
+    private Sale_Fragment mContext;
     private List<RoomDataList> myRoomList;
 
 
-    public RoomAdapter(Rent_Fragment mContext, List<RoomDataList> myRoomList) {
+    public RoomAdapter1(Sale_Fragment mContext, List<RoomDataList> myRoomList) {
         this.mContext = mContext;
         this.myRoomList = myRoomList;
     }
 
     @Override
-    public RoomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RoomViewHolder1 onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View mView= LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_row_item,parent,false);
 
-        return new RoomViewHolder(mView);
+        return new RoomViewHolder1(mView);
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull final RoomViewHolder holder, final int position) {
+
+
+    public void onBindViewHolder(@NonNull final RoomViewHolder1 holder, int position) {
 
         Glide.with(mContext)
                 .load(myRoomList.get(position).getRoomImage())
@@ -75,8 +75,6 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomViewHolder>{
         });
 
 
-
-
     }
 
 
@@ -90,13 +88,13 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomViewHolder>{
 
 }
 
-class RoomViewHolder extends RecyclerView.ViewHolder{
+class RoomViewHolder1 extends RecyclerView.ViewHolder{
 
     ImageView imageView;
     TextView mDescription,mLocation,mPrice;
     CardView mCardView;
 
-    public RoomViewHolder(View itemView) {
+    public RoomViewHolder1(View itemView) {
         super(itemView);
 
         imageView = itemView.findViewById(R.id.ivImage);

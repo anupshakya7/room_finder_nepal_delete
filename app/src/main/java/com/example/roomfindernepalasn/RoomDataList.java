@@ -10,6 +10,7 @@ public class RoomDataList {
     private String roomDescription;
     private String roomLocation;
     private String roomPrice;
+    private String key;
 
     public RoomDataList(){
 
@@ -36,5 +37,13 @@ public class RoomDataList {
 
     public String getRoomPrice() {
         return roomPrice;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 }

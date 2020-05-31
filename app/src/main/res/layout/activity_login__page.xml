@@ -24,6 +24,15 @@
             android:textSize="30dp" />
 
 
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:padding="20dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/login"
+            />
+
+
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -38,6 +47,7 @@
                 android:focusable="true"
                 android:focusableInTouchMode="true"
                 android:hint="Email Address"
+                android:textColor="#000"
                 android:drawableStart="@drawable/ic_email_black_24dp"
                 android:drawablePadding="10dp"
                 android:textColorHint="@color/color1"
@@ -56,6 +66,7 @@
 
             <EditText
                 android:id="@+id/pWord"
+                android:textColor="#000"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/color1"
@@ -71,6 +82,17 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <TextView
+            android:id="@+id/keyForgetPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:layout_marginTop="20dp"
+            android:text="Forget Password?"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            />
+
 
 
         <Button
@@ -81,7 +103,7 @@
             android:textSize="19sp"
             android:background="@drawable/button_rounded"
             android:textColor="@color/color0"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             />
 
         <Button

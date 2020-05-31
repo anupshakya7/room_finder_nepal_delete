@@ -6,6 +6,7 @@ package com.example.roomfindernepalasn;
 
 
 
+import android.app.DownloadManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,6 +31,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -46,9 +48,9 @@ public class Rent_Fragment extends Fragment {
     private ValueEventListener eventListener;
     ProgressDialog progressDialog;
     RoomAdapter roomAdapter;
-
-
     EditText txt_Search;
+
+
 
     FloatingActionButton mFloatActionButton;
 
@@ -58,7 +60,8 @@ public class Rent_Fragment extends Fragment {
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recycleView);
         mFloatActionButton = (FloatingActionButton)view.findViewById(R.id.floatingBtn);
-        txt_Search=(EditText)view.findViewById(R.id.txt_SearchText);
+        txt_Search=(EditText)view.findViewById(R.id.search_bar);
+
 
 //        recyclerView.setHasFixedSize(true);
 //        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -70,6 +73,7 @@ public class Rent_Fragment extends Fragment {
         progressDialog.setMessage("Loading Items....");
 
         myRoomList1 = new ArrayList<>();
+
 
         
 
@@ -93,6 +97,7 @@ public class Rent_Fragment extends Fragment {
 
                 for(DataSnapshot itemSnapshot: dataSnapshot.getChildren()){
                     RoomDataList roomDataList = itemSnapshot.getValue(RoomDataList.class);
+                    roomDataList.setKey(itemSnapshot.getKey());
                     myRoomList1.add(roomDataList);
 
                 }
@@ -109,22 +114,7 @@ public class Rent_Fragment extends Fragment {
         });
 
 
-        txt_Search.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                filter(s.toString());
-            }
-        });
 
 
         mFloatActionButton.setOnClickListener(new View.OnClickListener() {
@@ -138,23 +128,8 @@ public class Rent_Fragment extends Fragment {
         return view;
     }
 
-    private void filter(String toString) {
-
-        ArrayList<RoomDataList> filterList= new ArrayList<>();
-
-        for(RoomDataList item: myRoomList1){
-
-            if(item.getRoomLocation().toLowerCase().contains(toString.toLowerCase()) ){
-
-                filterList.add(item);
-
-            }
-
-        }
-        roomAdapter.filteredList(filterList);
-
 
     }
 
 
-}
+
