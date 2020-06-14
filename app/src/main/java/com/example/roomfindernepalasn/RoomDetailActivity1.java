@@ -1,13 +1,13 @@
 package com.example.roomfindernepalasn;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -16,7 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-public class RoomDetailActivity extends AppCompatActivity {
+public class RoomDetailActivity1 extends AppCompatActivity {
 
     TextView roomDetailDescription,roomDetailLocation,roomDetailPrice;
     ImageView roomDetailImage;
@@ -26,7 +26,7 @@ public class RoomDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_room_detail);
+        setContentView(R.layout.activity_room_detail1);
 
         roomDetailDescription=(TextView)findViewById(R.id.txtDescription);
         roomDetailLocation=(TextView)findViewById(R.id.txtLocation);
@@ -55,11 +55,31 @@ public class RoomDetailActivity extends AppCompatActivity {
 
     }
 
+    public void btnDeleteRoomItem(View view) {
 
+        final DatabaseReference reference = FirebaseDatabase.getInstance().getReference("SaleRoomDetail");
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+
+        StorageReference storageReference = storage.getReferenceFromUrl(imageUrl);
+
+        storageReference.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+
+                reference.child(key).removeValue();
+                Toast.makeText(RoomDetailActivity1.this,"Room Detail Deleted",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(),Rent_Fragment.class));
+                finish();
+
+            }
+        });
+
+
+    }
 
     public void updateBtn(View view) {
 
-        startActivity(new Intent(getApplicationContext(),UpdateDetailActivity.class)
+        startActivity(new Intent(getApplicationContext(),UpdateDetailActivity1.class)
         .putExtra("roomDescription",roomDetailDescription.getText().toString())
         .putExtra("roomLocation",roomDetailLocation.getText().toString())
                 .putExtra("roomPrice",roomDetailPrice.getText().toString())
@@ -70,28 +90,4 @@ public class RoomDetailActivity extends AppCompatActivity {
         finish();
 
     }
-
-    public void btnDeleteRoomItem(View view) {
-
-        final DatabaseReference reference = FirebaseDatabase.getInstance().getReference("RentRoomDetail");
-        FirebaseStorage storage = FirebaseStorage.getInstance();
-
-        StorageReference storageReference = storage.getReferenceFromUrl(imageUrl);
-
-        storageReference.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-
-                reference.child(key).removeValue();
-                Toast.makeText(RoomDetailActivity.this,"Room Detail Deleted",Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getApplicationContext(),Rent_Fragment.class));
-                finish();
-
-            }
-        });
-
-
-    }
-
-
 }

@@ -29,6 +29,7 @@
             android:inputType="text"
             android:textSize="19sp"
             android:layout_marginTop="20dp"
+            android:textColor="#000"
             android:id="@+id/uploadRoomDescription"
             />
 
@@ -37,6 +38,7 @@
             android:layout_height="wrap_content"
             android:hint="Room Location"
             android:focusable="true"
+            android:textColor="#000"
             android:focusableInTouchMode="true"
             android:inputType="text"
             android:textSize="19sp"
@@ -49,6 +51,7 @@
             android:layout_height="wrap_content"
             android:hint="Room Price"
             android:textSize="19sp"
+            android:textColor="#000"
             android:layout_marginTop="20dp"
             android:id="@+id/uploadRoomPrice"
             android:focusable="true"

@@ -68,7 +68,9 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomViewHolder>{
                 Intent intent = new Intent(v.getContext(),RoomDetailActivity.class);
                 intent.putExtra("Image",myRoomList.get(holder.getAdapterPosition()).getRoomImage());
                 intent.putExtra("Description",myRoomList.get(holder.getAdapterPosition()).getRoomDescription());
-                intent.putExtra("ketValue",myRoomList.get(holder.getAdapterPosition()).getKey());
+                intent.putExtra("Location",myRoomList.get(holder.getAdapterPosition()).getRoomLocation());
+                intent.putExtra("Price",myRoomList.get(holder.getAdapterPosition()).getRoomPrice());
+                intent.putExtra("keyValue",myRoomList.get(holder.getAdapterPosition()).getKey());
                 mContext.startActivity(intent);
 
             }
