@@ -113,8 +113,24 @@ public class Rent_Fragment extends Fragment {
             }
         });
 
+        txt_Search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
 
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+                filter(s.toString());
+
+            }
+        });
 
 
         mFloatActionButton.setOnClickListener(new View.OnClickListener() {
@@ -128,8 +144,26 @@ public class Rent_Fragment extends Fragment {
         return view;
     }
 
+    private void filter(String text) {
+
+        ArrayList<RoomDataList> filterList = new ArrayList<>();
+
+        for(RoomDataList item:myRoomList1){
+
+            if(item.getRoomLocation().toLowerCase().contains(text.toLowerCase())) {
+
+                filterList.add(item);
+
+            }
+
+            }
+
+        roomAdapter.filteredList(filterList);
+        }
 
     }
+
+
 
 
 

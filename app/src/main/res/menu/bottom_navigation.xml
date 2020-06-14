@@ -6,9 +6,9 @@
         android:icon="@drawable/rent_24dp"
         />
     <item
-        android:id="@+id/nav_sale"
-        android:title="Sale"
-        android:icon="@drawable/ic_home_black_24dp"
+        android:id="@+id/nav_aboutUs"
+        android:title="About Use"
+        android:icon="@drawable/ic_baseline_accessibility_new_24"
         />
     <item
         android:id="@+id/nav_profile"

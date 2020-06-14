@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fragment_background"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/color2"
+        android:layout_margin="20dp"
+        android:text="About Us"
+        android:id="@+id/aboutUs"
+        />
+
+    <RelativeLayout
+        android:padding="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ourCompany"
+        android:background="@drawable/aboutusdesign"
+        android:layout_below="@id/aboutUs"
+        >
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="OUR COMPANY"
+    android:textColor="@color/fragment_background"
+    android:layout_centerHorizontal="true"
+    android:textStyle="bold"
+    android:textSize="19sp"
+    android:id="@+id/heading1"
+    />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="We are like minded people working on the betterment of the people to find the best and suitable property like rooms, flat, apartment, houses and lands."
+        android:textSize="16sp"
+        android:textColor="@color/fragment_background"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_below="@+id/heading1"
+        android:id="@+id/description"
+        />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ourLogo"
+        android:layout_marginTop="20dp"
+        android:padding="20dp"
+        android:background="@drawable/aboutusdesign"
+        android:layout_below="@+id/ourCompany"
+        >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OUR LOGO"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/fragment_background"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textSize="19sp"
+        android:id="@+id/heading2"
+        />
+
+        <ViewFlipper
+            android:layout_margin="10dp"
+            android:layout_width="250dp"
+            android:layout_height="150dp"
+            android:layout_below="@+id/heading2"
+            android:id="@+id/logoImage"
+            android:layout_centerHorizontal="true"
+            />
+<!--    <ImageView-->
+<!--        android:layout_margin="15dp"-->
+<!--        android:layout_width="250dp"-->
+<!--        android:scaleType="centerInside"-->
+<!--        android:layout_height="150dp"-->
+<!--        android:layout_below="@+id/heading2"-->
+<!--        android:id="@+id/aboutUsLogoDesign"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:src="@drawable/anim_slideshow"-->
+<!--        />-->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This was the exclaminationary expression that went through all of us when we first create a sketch of the logo that was on the white paper. We all stare at the logo for long time before expressing the happiness that brought of by the logo. While we are busy focusing on the channel management of the product, Logo design was the important aspect that was hindering the other aspects of the product. So we just spend more than a week to work in the logo so that we can create the best platform for the clients and investors."
+        android:textSize="16sp"
+        android:textColor="@color/fragment_background"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_below="@+id/logoImage"
+        android:id="@+id/description1"
+        />
+
+    </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+
+</ScrollView>

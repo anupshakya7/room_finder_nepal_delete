@@ -34,4 +34,10 @@
         </menu>
 
     </item>
+
+    <item
+        android:id="@+id/logout"
+        android:title="Log Out"
+        android:icon="@drawable/ic_baseline_close_24"
+        />
 </menu>

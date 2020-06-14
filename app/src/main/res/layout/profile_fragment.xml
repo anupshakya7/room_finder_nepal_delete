@@ -9,16 +9,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#fff"
+        android:padding="20dp"
         >
 
 
     <ImageView
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:padding="5dp"
         android:id="@+id/imgview_profile"
         android:src="@drawable/usericon"
         android:layout_centerHorizontal="true"
-        android:layout_margin="20dp" />
+        android:layout_margin="5dp" />
 
     <TextView
         android:id="@+id/title"
@@ -29,51 +31,62 @@
         android:layout_below="@id/imgview_profile"
         android:layout_centerHorizontal="true"
         android:textStyle="bold"
-        android:layout_marginTop="5dp"
-        android:textSize="18sp"/>
+        android:textSize="16sp"/>
 
     <TextView
-        android:id="@+id/description"
+        android:id="@+id/userName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Web Developer"
+        android:textSize="15sp"
         android:layout_below="@id/title"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"/>
 
-    <ImageView
-        android:id="@+id/imgview_pic"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:src="@drawable/profile_ui"
-        android:layout_below="@id/description"
-        />
+<!--    <ImageView-->
+<!--        android:id="@+id/imgview_pic"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:src="@drawable/profile_ui"-->
+<!--        android:layout_below="@id/description"-->
+<!--        />-->
 
+        <RelativeLayout
+            android:layout_marginTop="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/userName"
+            android:id="@+id/userDetail"
+            android:padding="20dp"
+            android:background="@drawable/aboutusdesign"
+            >
     <LinearLayout
         android:id="@+id/line1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@id/imgview_pic"
-        android:layout_marginTop="30dp">
+        android:gravity="center_horizontal"
+        >
 
         <ImageView
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:src="@drawable/ic_local_phone_black_24dp"
-            android:layout_marginLeft="70dp"/>
+            android:src="@drawable/ic_baseline_local_phone_24"
+            />
 
         <TextView
+            android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="9841587691"
-            android:textSize="18sp"
-            android:textColor="#000"
-            android:layout_marginLeft="20dp"
+            android:layout_marginRight="85dp"
+            android:textSize="15sp"
+            android:textColor="#fff"
             android:layout_marginTop="5dp"/>
     </LinearLayout>
 
     <LinearLayout
+        android:gravity="center_horizontal"
         android:id="@+id/line2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -84,16 +97,18 @@
         <ImageView
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:src="@drawable/ic_email_black_24dp"
-            android:layout_marginLeft="70dp"/>
+            android:src="@drawable/ic_baseline_email_24"
+            />
 
         <TextView
+            android:id="@+id/emailA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="subitskya@gmail.com"
-            android:textSize="18sp"
-            android:textColor="#000"
-            android:layout_marginLeft="20dp"
+            android:textSize="15sp"
+            android:textColor="#fff"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"/>
     </LinearLayout>
     <LinearLayout
@@ -102,24 +117,44 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_below="@id/line2"
+        android:gravity="center_horizontal"
         android:layout_marginTop="10dp">
 
         <ImageView
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:src="@drawable/ic_settings_black_24dp"
-            android:layout_marginLeft="70dp"/>
+            android:src="@drawable/ic_baseline_settings_24"
+            />
 
         <TextView
             android:id="@+id/settingsa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Settings"
-            android:textSize="18sp"
-            android:textColor="#000"
-            android:layout_marginLeft="20dp"
+            android:layout_marginRight="115dp"
+            android:textSize="15sp"
+            android:textColor="#fff"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"/>
+
+
     </LinearLayout>
+
+        </RelativeLayout>
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_rounded"
+            android:text="Log Out"
+            android:textColor="#fff"
+            android:padding="20dp"
+            android:layout_below="@+id/userDetail"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:id="@+id/btnLogOut"
+            />
 
     </RelativeLayout>
 </ScrollView>

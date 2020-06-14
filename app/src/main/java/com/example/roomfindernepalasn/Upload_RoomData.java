@@ -33,7 +33,6 @@ public class Upload_RoomData extends AppCompatActivity {
     ImageView uploadImage;
     Uri uri;
     EditText txt_Description,txt_Location,txt_Price;
-    RadioButton btnRent,btnSale;
     String imageUrl;
 
     @Override
@@ -45,8 +44,6 @@ public class Upload_RoomData extends AppCompatActivity {
         txt_Description=(EditText) findViewById(R.id.uploadRoomDescription);
         txt_Location=(EditText)findViewById(R.id.uploadRoomLocation);
         txt_Price=(EditText)findViewById(R.id.uploadRoomPrice);
-        btnRent=(RadioButton)findViewById(R.id.rbtnRent);
-        btnSale=(RadioButton)findViewById(R.id.rbtnSale);
 
     }
 
@@ -93,14 +90,8 @@ public class Upload_RoomData extends AppCompatActivity {
                 while(!uriTask.isComplete());
                 Uri urlImage = uriTask.getResult();
                 imageUrl = urlImage.toString();
-                if(btnRent.isChecked()) {
                     uploadRentRoomDetailMain();
                     progressDialog.dismiss();
-                }
-                if(btnSale.isChecked()){
-                    uploadSaleRoomDetailMain();
-                    progressDialog.dismiss();
-                }
 
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -152,42 +143,4 @@ public class Upload_RoomData extends AppCompatActivity {
 
     }
 
-
-
-
-    public void uploadSaleRoomDetailMain(){
-
-
-
-
-        RoomDataList roomDataList = new RoomDataList(
-                imageUrl,
-                txt_Description.getText().toString(),
-                txt_Location.getText().toString(),
-                txt_Price.getText().toString()
-
-        );
-
-        String myCurrentDateTime = DateFormat.getDateTimeInstance()
-                .format(Calendar.getInstance().getTime());
-
-        FirebaseDatabase.getInstance().getReference("SaleRoomDetail")
-                .child(myCurrentDateTime).setValue(roomDataList).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-
-                if(task.isSuccessful()){
-                    Toast.makeText(Upload_RoomData.this,"Room Detail Uploaded",Toast.LENGTH_SHORT).show();
-                    finish();
-                }
-
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(Upload_RoomData.this,e.getMessage().toString(),Toast.LENGTH_SHORT).show();
-            }
-        });
-
-    }
 }

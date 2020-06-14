@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.google.firebase.database.core.Context;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RoomAdapter extends RecyclerView.Adapter<RoomViewHolder>{
@@ -89,7 +90,12 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomViewHolder>{
     }
 
 
+    public void filteredList(ArrayList<RoomDataList> filterList) {
 
+        myRoomList = filterList;
+        notifyDataSetChanged();
+
+    }
 }
 
 class RoomViewHolder extends RecyclerView.ViewHolder{

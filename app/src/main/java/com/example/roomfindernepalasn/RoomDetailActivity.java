@@ -71,9 +71,32 @@ public class RoomDetailActivity extends AppCompatActivity {
 
     }
 
-    public void btnDeleteRoomItem(View view) {
+//    public void btnDeleteRoomItem(View view) {
+//
+//        final DatabaseReference reference = FirebaseDatabase.getInstance().getReference("RentRoomDetail");
+//        FirebaseStorage storage = FirebaseStorage.getInstance();
+//
+//        StorageReference storageReference = storage.getReferenceFromUrl(imageUrl);
+//
+//        storageReference.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+//            @Override
+//            public void onSuccess(Void aVoid) {
+//
+//                reference.child(key).removeValue();
+//                Toast.makeText(RoomDetailActivity.this,"Room Detail Deleted",Toast.LENGTH_SHORT).show();
+//                startActivity(new Intent(getApplicationContext(),Rent_Fragment.class));
+//                finish();
+//
+//            }
+//        });
+//
+//
+//    }
 
-        final DatabaseReference reference = FirebaseDatabase.getInstance().getReference("RentRoomDetail");
+
+    public void btnDeleteRoom(View view) {
+
+        final DatabaseReference reference =FirebaseDatabase.getInstance().getReference("RentRoomDetail");
         FirebaseStorage storage = FirebaseStorage.getInstance();
 
         StorageReference storageReference = storage.getReferenceFromUrl(imageUrl);
@@ -83,15 +106,13 @@ public class RoomDetailActivity extends AppCompatActivity {
             public void onSuccess(Void aVoid) {
 
                 reference.child(key).removeValue();
-                Toast.makeText(RoomDetailActivity.this,"Room Detail Deleted",Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getApplicationContext(),Rent_Fragment.class));
+                Toast.makeText(RoomDetailActivity.this,"Room Detail Detele",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+
                 finish();
 
             }
         });
 
-
     }
-
-
 }

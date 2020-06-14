@@ -60,8 +60,8 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.nav_rent:
                     selectedFragment= new Rent_Fragment();
                     break;
-                case R.id.nav_sale:
-                    selectedFragment= new Sale_Fragment();
+                case R.id.nav_aboutUs:
+                    selectedFragment= new AboutUs_Page();
                     break;
                 case R.id.nav_profile:
                     selectedFragment= new Profile_Fragment();

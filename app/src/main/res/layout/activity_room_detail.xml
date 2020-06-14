@@ -54,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight=".4"
-            android:layout_below="@+id/updateAndDelete"
+            android:layout_below="@+id/update"
             android:layout_alignParentRight="true"
             android:gravity="center"
             >
@@ -95,7 +95,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ivImage1"
-            android:id="@+id/updateAndDelete"
+            android:id="@+id/delete"
             android:padding="10dp"
             >
 
@@ -107,8 +107,16 @@
                 android:text="Delete"
                 android:textSize="12sp"
                 android:padding="10dp"
-                android:id="@+id/deleteKey"
+                android:onClick="btnDeleteRoom"
                 />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/delete"
+            android:id="@+id/update"
+            android:padding="10dp"
+            >
 
             <Button
                 android:layout_width="wrap_content"
@@ -118,7 +126,7 @@
                 android:textSize="12sp"
                 android:drawableRight="@drawable/ic_baseline_update_24"
                 android:padding="10dp"
-                android:layout_below="@+id/deleteKey"
+
                 android:id="@+id/updateKey"
                 android:onClick="updateBtn"
                 />
